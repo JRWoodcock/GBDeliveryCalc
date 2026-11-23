@@ -1,5 +1,7 @@
 # Microsoft Store listing: GB DeliveryCalc 1.0.0
 
+Store ID **9P24VC3PN43L** · https://apps.microsoft.com/detail/9P24VC3PN43L (live after certification)
+
 Copy each field into Partner Center → *Store listings → English (United States)*. Character limits are Partner Center's, checked 2026-11-23; recheck them when you submit.
 
 ## Product name

@@ -36,12 +36,19 @@ if ($identity.IdentityName -like '*Placeholder*') {
     Write-Warning "Using PLACEHOLDER package identity from $IdentityFile. This package can be sideloaded for testing but will be rejected by Partner Center."
 }
 
+# Looks in the installed Windows SDK first, then in the NuGet cache for Microsoft.Windows.SDK.BuildTools,
+# which provides the same x64 tools without installing the SDK.
 function Find-SdkTool([string] $name) {
-    $root = Join-Path ${env:ProgramFiles(x86)} 'Windows Kits\10\bin'
-    $tool = Get-ChildItem $root -Recurse -Filter $name -ErrorAction SilentlyContinue |
-        Where-Object { $_.FullName -match '\\x64\\' } | Sort-Object FullName -Descending | Select-Object -First 1
-    if (-not $tool) { throw "$name not found. Install the Windows SDK (winget install Microsoft.WindowsSDK.10.0.26100)." }
-    $tool.FullName
+    $roots = @(
+        (Join-Path ${env:ProgramFiles(x86)} 'Windows Kits\10\bin'),
+        (Join-Path $env:USERPROFILE '.nuget\packages\microsoft.windows.sdk.buildtools')
+    )
+    foreach ($root in $roots) {
+        $tool = Get-ChildItem $root -Recurse -Filter $name -ErrorAction SilentlyContinue |
+            Where-Object { $_.FullName -match '\\x64\\' } | Sort-Object FullName -Descending | Select-Object -First 1
+        if ($tool) { return $tool.FullName }
+    }
+    throw "$name not found. Install the Windows SDK (winget install Microsoft.WindowsSDK.10.0.26100), or restore the Microsoft.Windows.SDK.BuildTools NuGet package."
 }
 
 $layout = Join-Path $OutputDirectory 'layout'
@@ -77,7 +84,7 @@ if ($CertificatePath) {
     $signArgs = @('sign', '/fd', 'SHA256', '/f', $CertificatePath)
     if ($plain) { $signArgs += @('/p', $plain) }
     $signArgs += $msix
-    & (Find-SdkTool 'signtool.exe') @args
+    & (Find-SdkTool 'signtool.exe') @signArgs
     if ($LASTEXITCODE -ne 0) { throw "SignTool failed. The certificate subject must equal the manifest Publisher ($($identity.Publisher))." }
 }
 

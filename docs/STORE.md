@@ -8,7 +8,16 @@ Checked against Microsoft Learn on 2026-11-18. Recheck these pages before submit
 
 ## What is in the repo
 * `packaging/Package.appxmanifest.template`: a full-trust desktop app (`runFullTrust`, `internetClient`), x64, targeting Windows.Desktop with MinVersion 10.0.19041.0.
-* `packaging/identity.json`: **placeholder** identity values. Put the real values in `packaging/identity.local.json`, which is git-ignored.
+* `packaging/identity.json`: the Partner Center identity (reserved 2026-11-23). `packaging/identity.local.json` (git-ignored) overrides it if present.
+
+| Partner Center field | Value |
+|---|---|
+| Store ID | 9P24VC3PN43L |
+| Package/Identity/Name | JasonWoodcock.GBDeliveryCalc |
+| Package/Identity/Publisher | CN=BAA6192D-7BA9-4F65-A67D-EFCB29701DF2 |
+| Package/Properties/PublisherDisplayName | Jason Woodcock |
+| Package family name (PFN) | JasonWoodcock.GBDeliveryCalc_8bxhscytm4f0w |
+| Store link | https://apps.microsoft.com/detail/9P24VC3PN43L |
 * `packaging/Assets/`: the GB DeliveryCalc package logos (44, 50, 150 and 310×150, plus scale-200, and the 16–256 px taskbar sizes).
 * `packaging/StoreListing/`: Store logo, box art, poster and hero art, and six 1920 × 1080 screenshots. The listing text is in [STORE_LISTING.md](STORE_LISTING.md).
 * `packaging/art/generate_art.py`: regenerates every logo, the app icon (`src/GBDeliveryCalc.App/Assets/AppIcon.ico` and `.png`) and the promotional art. Needs Python with Pillow.
@@ -32,10 +41,10 @@ Checked against Microsoft Learn on 2026-11-18. Recheck these pages before submit
 ## Build, validate and submit (Windows 11 x64)
 
 ```powershell
-winget install Microsoft.DotNet.SDK.10 Microsoft.WindowsSDK.10.0.26100 Microsoft.PowerShell
+winget install Microsoft.DotNet.SDK.10 Microsoft.PowerShell
+# MakeAppx/SignTool: install Microsoft.WindowsSDK.10.0.26100, or restore the Microsoft.Windows.SDK.BuildTools NuGet package (no admin needed)
 dotnet test GBDeliveryCalc.slnx -c Release
 
-Copy-Item packaging/identity.json packaging/identity.local.json   # paste Partner Center values
 pwsh packaging/build-msix.ps1 -Version 1.0.0.0
 
 # sideload smoke test (needs a test cert whose subject == Publisher, trusted in LocalMachine\TrustedPeople)
@@ -47,7 +56,7 @@ pwsh packaging/validate-msix.ps1 -Package packaging/out/GBDeliveryCalc_1.0.0.0_x
 ```
 
 Submission checklist in Partner Center:
-1. Reserve the name, and copy the identity values into `identity.local.json`. Rebuild **unsigned**.
+1. ~~Reserve the name~~ (done 2026-11-23; values above). Build **unsigned** with `build-msix.ps1 -Version 1.0.0.0`.
 2. *Pricing and availability:* markets, **Private audience** with groups, discoverability, free.
 3. *Properties:* category (Business or Productivity). **Privacy policy URL** is required if the app collects or transmits personal info, which it does when a Google key is saved: address and route lookups send job addresses to Google. Use https://jasonwoodcock.us/apps/privacy/ (the shared policy for all of Jason Woodcock's apps; source in [PRIVACY.md](PRIVACY.md)). Business contact info is required for company accounts.
 4. *Age ratings* questionnaire.

@@ -1,7 +1,7 @@
 {
-  "_comment": "PLACEHOLDERS ONLY. Copy to identity.local.json (git-ignored) and paste the exact values from Partner Center > Product identity. Never commit real certificate passwords here.",
-  "IdentityName": "GroverBrothers.GBDeliveryCalc.Placeholder",
-  "Publisher": "CN=00000000-0000-0000-0000-000000000000",
-  "PublisherDisplayName": "Grover Brothers Restaurant Supply",
+  "_comment": "Partner Center > Product identity for GB DeliveryCalc (Store ID 9P24VC3PN43L). These values are public; they appear in every Store package. packaging/identity.local.json (git-ignored) overrides them if present.",
+  "IdentityName": "JasonWoodcock.GBDeliveryCalc",
+  "Publisher": "CN=BAA6192D-7BA9-4F65-A67D-EFCB29701DF2",
+  "PublisherDisplayName": "Jason Woodcock",
   "DisplayName": "GB DeliveryCalc"
 }
