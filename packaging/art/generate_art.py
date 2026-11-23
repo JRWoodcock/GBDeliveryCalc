@@ -135,7 +135,10 @@ def main():
     print("wrote", os.path.relpath(ico_path, ROOT))
 
     # Microsoft Store listing art
+    # Square Store logo at 300, 150 and 71 px; the smaller ones are rendered large and scaled down for crisp edges.
     save(tile(300, rounded=False, glyph_scale=0.78), STORE, "StoreLogo-300x300.png")
+    for n in (150, 71):
+        save(hi(n)(lambda m: tile(m, rounded=False, glyph_scale=0.78)), STORE, f"StoreLogo-{n}x{n}.png")
     for n in (1080, 2160):
         save(tile(n, rounded=False, glyph_scale=0.70), STORE, f"BoxArt-{n}x{n}.png")
     poster = gradient((720, 1080), BLUE, NAVY).convert("RGBA")
