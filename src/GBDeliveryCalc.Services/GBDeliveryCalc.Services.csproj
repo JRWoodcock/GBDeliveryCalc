@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Adapters for external services. Google Maps Platform is called directly with a key entered on each PC;
+       no key is compiled into the app or kept in Git. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>GBDeliveryCalc.Services</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBDeliveryCalc.Core\GBDeliveryCalc.Core.csproj" />
+  </ItemGroup>
+</Project>

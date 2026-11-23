@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>GBDeliveryCalc.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <ProjectReference Include="..\..\src\GBDeliveryCalc.Core\GBDeliveryCalc.Core.csproj" />
+    <ProjectReference Include="..\..\src\GBDeliveryCalc.Data\GBDeliveryCalc.Data.csproj" />
+    <ProjectReference Include="..\..\src\GBDeliveryCalc.Services\GBDeliveryCalc.Services.csproj" />
+    <ProjectReference Include="..\..\src\GBDeliveryCalc.Presentation\GBDeliveryCalc.Presentation.csproj" />
+  </ItemGroup>
+</Project>

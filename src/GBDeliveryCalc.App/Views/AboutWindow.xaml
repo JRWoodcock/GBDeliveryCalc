@@ -1,0 +1,138 @@
+<Window x:Class="GBDeliveryCalc.App.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About The Developer"
+        Width="820"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        Background="{DynamicResource WindowBrush}"
+        Icon="/Assets/AppIcon.png"
+        WindowStartupLocation="CenterOwner">
+    <Border Margin="16" BorderBrush="{DynamicResource BorderBrushMuted}" BorderThickness="1" CornerRadius="6" Background="{DynamicResource ElevatedBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Panel.ZIndex="1" Background="{DynamicResource AccentBrush}" CornerRadius="6,6,0,0" Padding="14,10">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Width="40" Height="40" Source="/Assets/AppIcon.png" Margin="0,0,12,0" />
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="About The Developer" Foreground="{DynamicResource HeaderTextBrush}" FontSize="20" FontWeight="SemiBold" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.Row="1" Margin="20,12,20,14" VerticalAlignment="Top">
+                    <StackPanel Margin="0,0,0,12">
+                        <TextBlock>
+                            <Run x:Name="ProductRun" FontSize="15" FontWeight="SemiBold" />
+                            <Run x:Name="VersionRun" Foreground="{DynamicResource MutedTextBrush}" />
+                        </TextBlock>
+                        <TextBlock Text="Estimates the actual cost of delivery and installation jobs for Grover Brothers Restaurant Supply."
+                                   Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" Margin="0,2,0,0" />
+                    </StackPanel>
+
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="0,0,18,0">
+                            <TextBlock Text="Written by" Foreground="{DynamicResource MutedTextBrush}" FontSize="12" />
+                            <TextBlock Text="Jason Woodcock" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,8" />
+
+                            <Grid Margin="0,0,0,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Website" Foreground="{DynamicResource MutedTextBrush}" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" VerticalAlignment="Center">
+                                    <Hyperlink NavigateUri="https://www.JasonWoodcock.us" RequestNavigate="Hyperlink_RequestNavigate">www.JasonWoodcock.us</Hyperlink>
+                                </TextBlock>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Email" Foreground="{DynamicResource MutedTextBrush}" VerticalAlignment="Center" />
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="jrwoodcock@outlook.com" VerticalAlignment="Center" />
+                                    <Button Width="30" Height="26" MinWidth="0" MinHeight="0" Padding="0" Margin="10,0,0,0"
+                                            ToolTip="Copy email address" AutomationProperties.Name="Copy email address" Click="CopyEmailButton_Click">
+                                        <TextBlock Text="&#xE8C8;" FontFamily="Segoe MDL2 Assets" FontSize="13" />
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                        <Border Grid.Column="1" Width="96" Height="96" Padding="3" Background="{DynamicResource SurfaceBrush}"
+                                BorderBrush="{DynamicResource BorderBrushMuted}" BorderThickness="1" CornerRadius="8"
+                                HorizontalAlignment="Right" VerticalAlignment="Top">
+                            <Image Source="/Assets/JasonWoodcock.jpg" Width="90" Height="90" Stretch="UniformToFill"
+                                   RenderOptions.BitmapScalingMode="HighQuality" SnapsToDevicePixels="True">
+                                <Image.Clip>
+                                    <RectangleGeometry Rect="0,0,90,90" RadiusX="6" RadiusY="6" />
+                                </Image.Clip>
+                            </Image>
+                        </Border>
+                    </Grid>
+
+                    <Grid Margin="0,2,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Support" Foreground="{DynamicResource MutedTextBrush}" Margin="0,0,0,8" />
+                            <TextBlock x:Name="SupportText" Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" FontSize="12" Margin="0,0,0,8" />
+                            <Button Width="230" Height="64" MinWidth="0" MinHeight="0" Padding="0" Margin="0" BorderThickness="0" Background="Transparent"
+                                    HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Cursor="Hand"
+                                    ToolTip="Support the developer on Buy Me a Coffee" Click="BuyCoffeeButton_Click"
+                                    AutomationProperties.Name="Support the developer on Buy Me a Coffee">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="Transparent">
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Image Source="/Assets/BuyMeACoffeeWhiteButton.png" Width="230" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" UseLayoutRounding="True" SnapsToDevicePixels="True" />
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="License" Foreground="{DynamicResource MutedTextBrush}" Margin="0,0,0,8" />
+                            <TextBlock Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" FontSize="12" Margin="0,0,0,8">
+                                <Run x:Name="LicenseProductRun" />
+                                <LineBreak />
+                                <Run Text="Copyright © 2026 Jason Woodcock. All rights reserved." />
+                                <LineBreak />
+                                <Run x:Name="LicenseSummaryRun" />
+                                <Run Text="Provided as-is, without warranty or support obligation." />
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="View License" Width="112" Click="ViewLicenseButton_Click" />
+                                <Button Content="Privacy Policy" Width="112" Margin="8,0,0,0" Click="PrivacyPolicyButton_Click"
+                                        ToolTip="Open the privacy policy in your web browser" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+            <Border Grid.Row="2" BorderBrush="{DynamicResource BorderBrushMuted}" BorderThickness="0,1,0,0" Padding="10" Background="{DynamicResource SurfaceBrush}" CornerRadius="0,0,6,6">
+                <Button Content="Close" IsCancel="True" Width="92" HorizontalAlignment="Right" />
+            </Border>
+        </Grid>
+    </Border>
+</Window>

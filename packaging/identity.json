@@ -1,0 +1,7 @@
+{
+  "_comment": "PLACEHOLDERS ONLY. Copy to identity.local.json (git-ignored) and paste the exact values from Partner Center > Product identity. Never commit real certificate passwords here.",
+  "IdentityName": "GroverBrothers.GBDeliveryCalc.Placeholder",
+  "Publisher": "CN=00000000-0000-0000-0000-000000000000",
+  "PublisherDisplayName": "Grover Brothers Restaurant Supply",
+  "DisplayName": "GB DeliveryCalc"
+}

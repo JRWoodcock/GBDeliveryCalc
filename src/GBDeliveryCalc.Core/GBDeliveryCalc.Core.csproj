@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Pure calculation engine and domain contracts. No WPF, no network, no database references. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>GBDeliveryCalc.Core</RootNamespace>
+  </PropertyGroup>
+</Project>

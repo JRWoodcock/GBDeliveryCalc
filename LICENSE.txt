@@ -1,0 +1,135 @@
+# GB DeliveryCalc Free Use, No Redistribution License
+
+Version 1.0
+Copyright © 2026 Jason Woodcock. All rights reserved.
+
+This license governs the use of GB DeliveryCalc, including the application, installer, executable files, database files created by the application, documentation, templates, sample files, user interface, branding, icons, logos, and related materials, except for third-party components that are governed by their own license terms.
+
+By installing, copying, downloading, accessing, or using GB DeliveryCalc, you agree to this license.
+
+## 1. License Grant
+
+Subject to the terms of this license, Jason Woodcock grants you a free, limited, non-exclusive, non-transferable, revocable license to install and use GB DeliveryCalc for any lawful personal, business, internal, commercial, nonprofit, educational, or government purpose.
+
+No purchase, subscription, royalty, or license fee is required for permitted use under this license.
+
+## 2. Ownership
+
+GB DeliveryCalc is licensed, not sold.
+
+Jason Woodcock retains all right, title, and interest in and to GB DeliveryCalc, including all copyrights, trademarks, trade names, source code, object code, design elements, documentation, branding, and related intellectual property.
+
+All rights not expressly granted in this license are reserved by Jason Woodcock.
+
+## 3. No Redistribution
+
+You may not copy, redistribute, resell, sublicense, rent, lease, lend, publish, mirror, upload, host, bundle, repackage, include in another product, or otherwise provide GB DeliveryCalc, its installer, its executable files, or any substantial portion of the application to any third party.
+
+You may share a link to the official GB DeliveryCalc download page or other official distribution location designated by Jason Woodcock.
+
+You may make a reasonable backup copy of the installer or application files solely for your own archival, recovery, or reinstall purposes, provided that the backup copy is not shared, published, sold, transferred, or made available to any other person or organization.
+
+## 4. Installation and Use
+
+You may install and use GB DeliveryCalc on devices that you own or control, provided that the use complies with this license.
+
+You may use GB DeliveryCalc to manage your own data, records, estimates, actuals, reports, documents, settings, customers, jobs, and related business information.
+
+You may not operate GB DeliveryCalc as a hosted service, software-as-a-service offering, managed service, service bureau, public database, shared commercial platform, or third-party processing system unless Jason Woodcock gives you written permission.
+
+## 5. Restrictions
+
+You may not:
+
+a. modify, adapt, translate, or create derivative works based on GB DeliveryCalc;
+b. reverse engineer, decompile, disassemble, or attempt to derive the source code, structure, database schema, security mechanisms, or internal logic of GB DeliveryCalc, except where such restriction is prohibited by applicable law;
+c. remove, obscure, or alter any copyright notice, license notice, trademark, branding, attribution, or proprietary notice;
+d. use the GB DeliveryCalc name, logo, icon, branding, or trade dress without written permission from Jason Woodcock;
+e. use GB DeliveryCalc in a way that violates any applicable law or regulation;
+f. use GB DeliveryCalc to store, process, transmit, or manage unlawful content or data;
+g. claim ownership of GB DeliveryCalc or represent that you created, maintain, publish, or officially distribute GB DeliveryCalc;
+h. circumvent any technical limitation, license notice, update mechanism, access control, or security feature included in GB DeliveryCalc.
+
+## 6. User Data
+
+You retain ownership of the data, records, files, backups, reports, documents, logos, addresses, settings, and other content that you enter into, import into, export from, or create with GB DeliveryCalc.
+
+You are solely responsible for backing up, securing, verifying, maintaining, and protecting your own data.
+
+Jason Woodcock is not responsible for lost data, corrupted data, incomplete data, inaccurate reports, failed backups, failed restores, deleted records, unauthorized access, or any consequences resulting from your use of GB DeliveryCalc.
+
+## 7. Backups and Restores
+
+GB DeliveryCalc may include features for backing up, restoring, exporting, or importing data.
+
+You are solely responsible for verifying that backups are complete, accurate, usable, secure, and restorable.
+
+Jason Woodcock does not warrant that any backup, restore, export, import, migration, or recovery process will succeed, preserve all data, maintain formatting, or remain compatible with future versions.
+
+## 8. Third-Party Components
+
+GB DeliveryCalc may include, depend on, or interact with third-party software, libraries, frameworks, services, tools, fonts, templates, icons, databases, operating system components, or other materials.
+
+Third-party components are governed by their own license terms. Nothing in this license modifies, replaces, limits, or expands your rights or obligations under any third-party license.
+
+If required, third-party license notices may be provided in a separate notice file, documentation file, about screen, source repository, installer notice, or application directory.
+
+## 9. Updates, Changes, and Availability
+
+Jason Woodcock may update, modify, replace, rename, discontinue, or remove GB DeliveryCalc at any time.
+
+Jason Woodcock has no obligation to provide updates, upgrades, bug fixes, security fixes, compatibility updates, new features, documentation, technical support, training, hosting, data recovery, or continued availability.
+
+Any updates or new versions of GB DeliveryCalc are governed by this license unless they are accompanied by separate license terms.
+
+## 10. No Support Obligation
+
+GB DeliveryCalc is provided without any support obligation.
+
+Jason Woodcock may choose to provide support, documentation, updates, examples, fixes, or assistance, but doing so does not create any ongoing obligation to provide future support, maintenance, updates, or assistance.
+
+## 11. No Warranty
+
+GB DeliveryCalc is provided “as is,” “as available,” and “with all faults.”
+
+To the maximum extent permitted by law, Jason Woodcock disclaims all warranties of any kind, whether express, implied, statutory, or otherwise, including warranties of merchantability, fitness for a particular purpose, title, non-infringement, accuracy, reliability, availability, compatibility, security, performance, and error-free operation.
+
+Jason Woodcock does not warrant that GB DeliveryCalc will meet your requirements, operate without interruption, remain available, remain compatible with your hardware or software, prevent data loss, produce accurate results, generate valid reports, comply with your business requirements, or remain free from bugs, errors, defects, vulnerabilities, or harmful components.
+
+## 12. Limitation of Liability
+
+To the maximum extent permitted by law, Jason Woodcock will not be liable for any direct, indirect, incidental, special, consequential, exemplary, punitive, or other damages arising out of or related to GB DeliveryCalc or this license.
+
+This includes, but is not limited to, damages for lost profits, lost revenue, lost savings, lost data, corrupted data, failed backups, failed restores, business interruption, loss of goodwill, loss of use, inaccurate reports, missed deadlines, missed warranty claims, denied claims, customer disputes, project delays, equipment downtime, computer failure, security incidents, or reliance on GB DeliveryCalc.
+
+Your sole and exclusive remedy is to stop using GB DeliveryCalc.
+
+## 13. Indemnification
+
+You agree to defend, indemnify, and hold harmless Jason Woodcock from and against any claims, damages, losses, liabilities, costs, and expenses arising out of or related to your use of GB DeliveryCalc, your violation of this license, your violation of law, your data, your business operations, or your distribution or sharing of GB DeliveryCalc in violation of this license.
+
+## 14. Termination
+
+This license automatically terminates if you violate any of its terms.
+
+Upon termination, you must stop using GB DeliveryCalc and delete all copies of the application, installer, and related materials in your possession or control, except for user data that you own.
+
+Sections concerning ownership, restrictions, user data, third-party components, no warranty, limitation of liability, indemnification, termination, and governing law survive termination.
+
+## 15. Governing Law
+
+This license is governed by the laws of the State of Mississippi, United States of America, excluding its conflict-of-law rules, unless applicable law requires otherwise.
+
+## 16. Entire Agreement
+
+This license is the entire agreement between you and Jason Woodcock regarding GB DeliveryCalc and supersedes any prior or separate understandings, statements, messages, documentation, or representations regarding the software.
+
+If any part of this license is found unenforceable, the remaining parts will remain in effect.
+
+## 17. Contact and Official Distribution
+
+GB DeliveryCalc may only be distributed from official locations authorized by Jason Woodcock.
+
+Users may share links to the official GB DeliveryCalc download page or official project page, but may not host, mirror, repackage, upload, or redistribute the application itself.
+
+For licensing questions, contact Jason Woodcock through the official contact method provided on the About section of this program.

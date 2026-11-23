@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GBDeliveryCalc.App/GBDeliveryCalc.App.csproj" />
+    <Project Path="src/GBDeliveryCalc.Core/GBDeliveryCalc.Core.csproj" />
+    <Project Path="src/GBDeliveryCalc.Data/GBDeliveryCalc.Data.csproj" />
+    <Project Path="src/GBDeliveryCalc.Presentation/GBDeliveryCalc.Presentation.csproj" />
+    <Project Path="src/GBDeliveryCalc.Services/GBDeliveryCalc.Services.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GBDeliveryCalc.Tests/GBDeliveryCalc.Tests.csproj" />
+  </Folder>
+</Solution>

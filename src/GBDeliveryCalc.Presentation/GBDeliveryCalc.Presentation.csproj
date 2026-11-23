@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- View models for the desktop UI. No WPF types, so the main workflow is unit-testable on any OS. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>GBDeliveryCalc.Presentation</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBDeliveryCalc.Core\GBDeliveryCalc.Core.csproj" />
+    <ProjectReference Include="..\GBDeliveryCalc.Services\GBDeliveryCalc.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+  </ItemGroup>
+</Project>

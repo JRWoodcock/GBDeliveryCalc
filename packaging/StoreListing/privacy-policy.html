@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | Jason Woodcock Apps</title>
+<style>
+  :root { color-scheme: light dark; --fg: #1f2937; --bg: #ffffff; --accent: #1e3a8a; --code: #f3f4f6; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e5e7eb; --bg: #111827; --accent: #93c5fd; --code: #1f2937; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { color: var(--accent); font-size: 2rem; margin-bottom: 0.25rem; }
+  h2 { color: var(--accent); margin-top: 2rem; font-size: 1.35rem; }
+  h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; font-size: 0.9em; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+<h1 id="privacy-policy">Privacy Policy</h1>
+<p>Effective date: November 23, 2026</p>
+<p>This policy applies to every Windows application published by Jason Woodcock ("we", "us"), including <strong>GB PunchList</strong> and <strong>GB DeliveryCalc</strong>, and to any future app that links to this page ("the apps"). It explains what information the apps handle, where it goes and how you control it.</p>
+<ul>
+  <li><strong>Developer:</strong> Jason Woodcock</li>
+  <li><strong>Website:</strong> <a href="https://www.JasonWoodcock.us">www.JasonWoodcock.us</a></li>
+  <li><strong>Email:</strong> <a href="mailto:jrwoodcock@outlook.com">jrwoodcock@outlook.com</a></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>The apps are local Windows desktop applications. Everything you enter is stored <strong>on your own PC</strong>.</li>
+  <li>We do <strong>not</strong> collect, receive, monitor, sell, rent or share your information. The apps never send your data to us.</li>
+  <li>The apps have no user accounts, advertising, analytics, telemetry, tracking or automatic cloud sync.</li>
+  <li>Some apps offer <strong>optional</strong> online features that connect directly to a third-party service using your own API key. They are off until you turn them on, and they are listed in <a href="#optional-online-features">Optional online features</a> below.</li>
+</ul>
+<p>Simply put, we don't want, need or use your business data. It belongs to you and stays under your control.</p>
+<h2 id="information-you-enter">Information you enter</h2>
+<p>Depending on the app, you may enter information such as:</p>
+<ul>
+  <li>customer names, contact details, email addresses and phone numbers;</li>
+  <li>job sites, job addresses and project contacts;</li>
+  <li>notes, punch-list items, estimates, costs, labor rates and vehicle details;</li>
+  <li>company settings, branding, logos and document details.</li>
+</ul>
+<p>You enter this information voluntarily. It is stored on your PC, in your Windows user profile's application-data folder (or the app's private storage when installed from the Microsoft Store). We have no access to it and cannot view, recover or restore it.</p>
+<p>The local data is protected by your Windows account; the apps do not add their own encryption to it. We recommend protecting your PC with a strong sign-in and BitLocker or similar disk encryption.</p>
+<h2 id="files-you-create">Files you create</h2>
+<p>Backups, exports, transfer packages, PDF documents and similar files are created only when you ask, and are saved only where you choose. Information leaves an app only when you deliberately save, copy, send, print or share such a file, or use an optional online feature. You decide where those files go and who receives them.</p>
+<h2 id="optional-online-features">Optional online features</h2>
+<p>These features are turned off until you enter your own API key for the service. When used, the app connects directly from your PC to that service over HTTPS. Nothing passes through us.</p>
+<p><strong>GB PunchList:</strong> none. The app works entirely offline.</p>
+<p><strong>GB DeliveryCalc:</strong></p>
+<ul>
+  <li><strong>Address and route lookups (Google Maps Platform).</strong> When you look up an address, the text you typed is sent to Google Places API (New). When you confirm an address or re-run a route lookup, the shop's starting address and the job address are sent to Google Routes API to get driving miles and time. Customer names, costs and notes are not sent. Google's handling is covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and the Google Maps Platform terms.</li>
+  <li><strong>Daily fuel prices (OilPriceAPI).</strong> Once a day, the app requests the average regular and diesel prices for the shop's state. Only the price-series name, which contains the two-letter state code, is sent. OilPriceAPI's own privacy policy applies (see oilpriceapi.com).</li>
+</ul>
+<p>Like any internet request, these services also receive your PC's IP address.</p>
+<h3 id="api-keys">API keys</h3>
+<p>Keys you enter are encrypted with Windows Data Protection (DPAPI), so only your Windows account on that PC can read them. They are never stored in an app's database or backups, never shown again on screen, and are sent only to the service they belong to. If an app offers a key backup, that file is encrypted with a password you choose.</p>
+<h2 id="links-you-choose-to-open">Links you choose to open</h2>
+<p>Each app's About window links to the developer's website (<a href="https://www.JasonWoodcock.us">www.JasonWoodcock.us</a>) and support page on Buy Me a Coffee (<a href="https://buymeacoffee.com/jrwoodcock">buymeacoffee.com/jrwoodcock</a>). They open in your web browser only when you click them, and the apps send no information with them. Once a page is open, that website's own privacy policy applies. Supporting the developer is optional, and any payment is handled entirely by Buy Me a Coffee; the apps never see it.</p>
+<h2 id="clipboard">Clipboard</h2>
+<p>The apps place text on the Windows clipboard only when you click a copy button (for example, the developer's email address in About, or a cost summary in GB DeliveryCalc). The apps never read the clipboard.</p>
+<h2 id="permissions">Permissions</h2>
+<p>When installed from the Microsoft Store, the apps use the <code>runFullTrust</code> capability that every packaged Windows desktop app needs. It lets them run as standard desktop programs, use their local data folder, show the standard Windows file dialogs and save files you ask for. Apps with online features also request <code>internetClient</code> to reach the services above. The apps do not ask for administrator rights, install services or drivers, or listen for incoming network connections.</p>
+<h2 id="microsoft-windows-and-your-browser">Microsoft, Windows and your browser</h2>
+<p>If you install an app from the Microsoft Store, Microsoft may collect installation and diagnostic data under the <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy Statement</a>. Windows, your web browser and any payment provider have their own privacy practices. This policy does not cover information they collect independently.</p>
+<h2 id="keeping-and-deleting-your-information">Keeping and deleting your information</h2>
+<p>Your information stays on your PC until you delete it. You can delete records inside each app, remove API keys in the app's settings, or uninstall the app. Uninstalling may delete the app's local data, so back up first if you want to keep it. Backups and exports you saved elsewhere are not deleted by uninstalling; delete them yourself if you no longer need them.</p>
+<h2 id="children">Children</h2>
+<p>The apps are business tools and are not directed at children under 13. We do not knowingly collect information from children or anyone else.</p>
+<h2 id="changes-to-this-policy">Changes to this policy</h2>
+<p>If an app's handling of information changes, or a new app adds a different online feature, we will update this policy and its effective date. The current version is always the one linked from each app's Microsoft Store listing.</p>
+<h2 id="contact">Contact</h2>
+<p>For questions about this policy or your information, or to report a privacy concern:</p>
+<ul>
+  <li><strong>Jason Woodcock</strong></li>
+  <li><strong>Email:</strong> <a href="mailto:jrwoodcock@outlook.com">jrwoodcock@outlook.com</a></li>
+  <li><strong>Website:</strong> <a href="https://www.JasonWoodcock.us">www.JasonWoodcock.us</a></li>
+</ul>
+<p>The same details are in each app's About window.</p>
+<p>Copyright © 2026 Jason Woodcock. All rights reserved.</p>
+</main>
+</body>
+</html>

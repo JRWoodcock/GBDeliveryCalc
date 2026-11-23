@@ -1,0 +1,111 @@
+# Microsoft Store listing: GB DeliveryCalc 1.0.0
+
+Copy each field into Partner Center → *Store listings → English (United States)*. Character limits are Partner Center's, checked 2026-11-23; recheck them when you submit.
+
+## Product name
+
+GB DeliveryCalc
+
+## Short description (up to 1,000 characters; shown at the top of the listing)
+
+Know what a delivery and installation job will really cost before you quote it. GB DeliveryCalc adds up team labor, fuel, vehicle running costs and any other direct costs, so you can set your price and markup with confidence.
+
+## Description (up to 10,000 characters)
+
+GB DeliveryCalc works out what a delivery and installation job will actually cost your company, before you quote it.
+
+Pick the crew, look up the job address and the app does the rest. It finds the driving miles and time from your shop, fetches today's fuel price for your state, and adds up every cost line:
+
+• Travel labor: drive time at the crew's loaded labor cost per hour
+• Installation labor: the time on site, at the same rate
+• Fuel: miles ÷ the vehicle's MPG × today's regular or diesel price
+• Vehicle operating cost: maintenance, tires and insurance per mile
+• Other direct costs: parking, permits, disposal fees, anything else
+
+The total is your true cost. Your sales team adds the markup.
+
+ROUND TRIP OR ONE WAY
+Switch between round trip and one way and the figures update at once. Round trips look up both directions, because the drive back isn't always the same as the drive out.
+
+LEARN FROM EVERY JOB
+Each estimate is saved with the rates and prices used at the time, so later changes never alter it. After the job, record the actual miles, drive time and installation time. The app shows estimated against actual cost, line by line, so your next quote is closer still.
+
+WORKS WITHOUT AN INTERNET SERVICE
+Everything is stored on your PC. Address and route lookups (Google Maps Platform) and daily fuel prices (OilPriceAPI) are optional and use your own API keys. Without them, type the miles, drive time and fuel price yourself; every calculation still works.
+
+BUILT FOR THE SHOP FLOOR
+• Copy a plain-text cost summary into an email or quote with one click
+• Search and reopen past estimates; edit or delete them
+• Set up as many teams and vehicles as you run; archive the ones you retire
+• Optional rounding of labor hours up to the next whole hour
+• Back up and restore all your data to a file; back up your API keys to a password-protected file
+• Light and dark themes, or follow Windows
+
+GB DeliveryCalc is free to use. No account or subscription is needed.
+
+## Product features (up to 20, 200 characters each)
+
+1. Adds up travel labor, installation labor, fuel, vehicle running cost and other direct costs for each job
+2. Looks up job addresses, driving miles and drive time with Google Maps Platform (optional, uses your own key)
+3. Fetches today's regular and diesel price for your shop's state automatically (optional, uses your own key)
+4. Round trip or one way, with both directions looked up for round trips
+5. Saves every estimate with the rates and prices used, so later changes never alter it
+6. Records actual miles and hours after the job and compares estimated against actual cost
+7. Copies a plain-text cost summary for emails and quotes
+8. Unlimited teams and vehicles, each with its own labor rate, MPG and running cost
+9. Works fully offline with manual entry; all data stays on your PC
+10. Backup and restore, plus password-protected API key backup
+11. Light, dark or follow-Windows appearance
+
+## Search terms (up to 7, 30 characters each)
+
+delivery cost, installation estimate, job costing, fuel cost calculator, route mileage, labor cost, restaurant equipment
+
+## Screenshots (1920 × 1080 PNG)
+
+Upload in this order from `packaging/StoreListing/Screenshots/`. Captions are up to 200 characters.
+
+| File | Caption |
+|---|---|
+| `01-new-estimate.png` | Look up the job address and the miles, drive time and today's fuel price are filled in. Every cost line is shown. |
+| `02-history.png` | Every estimate is saved with the rates and prices used, ready to reopen, copy, edit or compare. |
+| `03-estimated-vs-actual.png` | Record the actual miles and hours after the job, and see estimated against actual cost line by line. |
+| `04-settings.png` | Set up the shop's starting address, your teams' loaded labor rates and each vehicle's MPG and running cost. |
+| `05-new-estimate-dark.png` | Dark theme, or follow your Windows setting. |
+| `06-history-dark.png` | Estimated vs actual cost in the dark theme. |
+
+The screenshots use Grover Brothers' Hattiesburg, Mississippi starting address, with public government sites as job destinations: the Mississippi State Capitol, Vicksburg National Military Park, Gulf Islands National Seashore and the Natchez Trace Parkway. The team and vehicle names are generic examples. No API keys appear in any screenshot.
+
+## Store logos and promotional art
+
+All of these are in `packaging/StoreListing/` and are generated by `packaging/art/generate_art.py`.
+
+| File | Use |
+|---|---|
+| `StoreLogo-300x300.png` | *Store logos → 1:1 app tile icon* (300 × 300) |
+| `BoxArt-1080x1080.png`, `BoxArt-2160x2160.png` | *1:1 box art* (1080 × 1080 minimum; 2160 × 2160 recommended) |
+| `Poster-720x1080.png` | *2:3 poster art* (720 × 1080) |
+| `HeroArt-1920x1080.png` | *16:9 Super hero art* (1920 × 1080), optional |
+
+The package's own logos (Start tile, taskbar, Store logo in the package) are in `packaging/Assets/`.
+
+## Properties
+
+* **Category:** Business. **Subcategory:** none needed.
+* **Privacy policy URL:** https://jasonwoodcock.us/apps/privacy/ (required, because job addresses are sent to Google when lookups are turned on).
+* **Website:** https://www.JasonWoodcock.us
+* **Support contact info:** jrwoodcock@outlook.com
+* **Developer / publisher display name:** Jason Woodcock (must match the Partner Center account).
+* **System requirements:** Windows 10 version 2004 (build 19041) or later, x64. An internet connection is needed only for the optional lookups.
+
+## Copyright and trademark
+
+Copyright © 2026 Jason Woodcock. All rights reserved.
+
+## Additional license terms
+
+Free use, no redistribution. The full terms are in `LICENSE.txt` and are shown in the app under Settings → About → View License.
+
+## Privacy policy
+
+The full policy is in [PRIVACY.md](PRIVACY.md). It is shared by all of Jason Woodcock's apps (GB PunchList, GB DeliveryCalc and later ones), so every Store listing can use the same address. A ready-to-host page is `packaging/StoreListing/privacy-policy.html`; rebuild it with `python packaging/art/build_privacy_page.py` after editing the policy. It is published at **https://jasonwoodcock.us/apps/privacy/**; use that address in *Properties → Privacy policy URL* for every app. After editing the policy, update that page too.

@@ -1,0 +1,220 @@
+<UserControl x:Class="GBDeliveryCalc.App.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Grid>
+    <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+    <Grid Margin="8,8,20,0">
+      <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+      <TextBlock Text="{Binding StatusMessage}" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{DynamicResource StatusBrush}" VerticalAlignment="Center" />
+      <Button Grid.Column="1" Content="About" Click="About_Click" Margin="8,0,0,0" ToolTip="About the developer, version and licence" />
+    </Grid>
+  <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="8,0,20,8">
+
+      <GroupBox Header="Company">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260" /><ColumnDefinition Width="90" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="70" /><ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
+          </Grid.RowDefinitions>
+          <TextBlock Text="Starting address" Style="{StaticResource FieldLabel}" VerticalAlignment="Top" Margin="0,10,8,2" />
+          <StackPanel Grid.Column="1" Grid.ColumnSpan="4">
+            <DockPanel>
+              <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button Content="Look up" Command="{Binding SearchOriginAddressCommand}" ToolTip="Find the shop's full address with Google" />
+                <Button Content="Confirm match" Command="{Binding ConfirmOriginAddressCommand}" ToolTip="Use the selected Google address and save" />
+              </StackPanel>
+              <TextBox Text="{Binding OriginAddress, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="Starting address"
+                       ToolTip="The shop's street address. Estimates start here, and its state sets the fuel price state." />
+            </DockPanel>
+            <ListBox MaxHeight="120" Margin="0,2,8,2" ItemsSource="{Binding OriginCandidates}" SelectedItem="{Binding SelectedOriginCandidate}"
+                     AutomationProperties.Name="Starting address matches"
+                     Visibility="{Binding OriginCandidates.Count, Converter={StaticResource NonEmptyToVis}}">
+              <ListBox.ItemTemplate>
+                <DataTemplate>
+                  <StackPanel>
+                    <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding FormattedAddress}" />
+                  </StackPanel>
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Text="Powered by Google" Style="{StaticResource Hint}" Visibility="{Binding ShowOriginPoweredByGoogle, Converter={StaticResource BoolToVis}}" />
+            <TextBlock Text="{Binding OriginLookupMessage}" Style="{StaticResource Hint}" />
+          </StackPanel>
+          <TextBlock Grid.Row="1" Text="Default installation time" Style="{StaticResource FieldLabel}" />
+          <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding DefaultInstallHoursText, UpdateSourceTrigger=PropertyChanged}" />
+          <TextBlock Grid.Row="1" Grid.Column="2" Text="h" Style="{StaticResource FieldLabel}" />
+          <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding DefaultInstallMinutesText, UpdateSourceTrigger=PropertyChanged}" />
+          <TextBlock Grid.Row="1" Grid.Column="4" Text="min" Style="{StaticResource FieldLabel}" />
+          <CheckBox Grid.Row="2" Grid.ColumnSpan="5" Content="Round partial labor hours up to the nearest whole hour" IsChecked="{Binding RoundLaborHoursUp}"
+                    Margin="0,6,0,2" AutomationProperties.Name="Round partial labor hours up"
+                    ToolTip="Travel and installation hours are each rounded up for costing (e.g. 4 h 28 min is costed as 5 h). Off by default." />
+          <TextBlock Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource Hint}" TextWrapping="Wrap"
+                     Text="Estimates show actual company costs only: labor at each team's loaded cost, fuel, vehicle operating cost and other direct costs. The salesman sets the markup." />
+          <Button Grid.Row="4" Content="Save company settings" Command="{Binding SaveCompanyCommand}" HorizontalAlignment="Left" />
+        </Grid>
+      </GroupBox>
+
+
+
+      <TextBlock Text="Teams and vehicles" FontWeight="SemiBold" FontSize="14" Margin="0,6,0,2" />
+      <CheckBox Content="Show archived teams and vehicles" IsChecked="{Binding ShowArchived}" Margin="0,0,0,8" />
+
+      <Grid>
+        <Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="12" /><ColumnDefinition /></Grid.ColumnDefinitions>
+
+        <GroupBox Header="Teams">
+          <StackPanel>
+            <ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}" Height="140">
+              <ListBox.ItemTemplate>
+                <DataTemplate>
+                  <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold" />
+                    <TextBlock Text=" — " />
+                    <TextBlock Text="{Binding Description}" />
+                    <TextBlock Text="  (archived)" Foreground="{DynamicResource WarningBrush}" Visibility="{Binding IsArchived, Converter={StaticResource BoolToVis}}" />
+                  </StackPanel>
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Margin="0,6,0,0">
+              <Grid.ColumnDefinitions><ColumnDefinition Width="200" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+              <Grid.RowDefinitions><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /></Grid.RowDefinitions>
+              <TextBlock Text="Name" Style="{StaticResource FieldLabel}" />
+              <TextBox Grid.Column="1" Text="{Binding TeamName, UpdateSourceTrigger=PropertyChanged}" />
+              <TextBlock Grid.Row="1" Text="Description" Style="{StaticResource FieldLabel}" />
+              <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TeamDescription, UpdateSourceTrigger=PropertyChanged}" ToolTip="e.g. Alex and Sam, Company Truck" />
+              <TextBlock Grid.Row="2" Text="Loaded labor cost ($/hr)" Style="{StaticResource FieldLabel}" />
+              <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TeamLoadedCostText, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="Team loaded labor cost" ToolTip="Wages plus employer costs per hour for the whole team. Needed for a complete estimate." />
+              <TextBlock Grid.Row="3" Text="Default vehicle" Style="{StaticResource FieldLabel}" />
+              <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding VehicleOptions}" SelectedItem="{Binding TeamDefaultVehicle}" DisplayMemberPath="Label" />
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+              <Button Content="New team" Command="{Binding NewTeamCommand}" />
+              <Button Content="Save team" Command="{Binding SaveTeamCommand}" FontWeight="SemiBold" />
+              <Button Content="Archive / restore" Command="{Binding ToggleTeamArchivedCommand}" />
+            </StackPanel>
+          </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Column="2" Header="Vehicles">
+          <StackPanel>
+            <ListBox ItemsSource="{Binding Vehicles}" SelectedItem="{Binding SelectedVehicle}" Height="140">
+              <ListBox.ItemTemplate>
+                <DataTemplate>
+                  <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold" />
+                    <TextBlock Text="  (archived)" Foreground="{DynamicResource WarningBrush}" Visibility="{Binding IsArchived, Converter={StaticResource BoolToVis}}" />
+                  </StackPanel>
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Margin="0,6,0,0">
+              <Grid.ColumnDefinitions><ColumnDefinition Width="200" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+              <Grid.RowDefinitions><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /></Grid.RowDefinitions>
+              <TextBlock Text="Name" Style="{StaticResource FieldLabel}" />
+              <TextBox Grid.Column="1" Text="{Binding VehicleName, UpdateSourceTrigger=PropertyChanged}" ToolTip="e.g. 2028 GMC Sierra" />
+              <TextBlock Grid.Row="1" Text="Fuel type" Style="{StaticResource FieldLabel}" />
+              <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding FuelTypes}" SelectedItem="{Binding VehicleFuelType}">
+                <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource EnumLabel}}" /></DataTemplate></ComboBox.ItemTemplate>
+              </ComboBox>
+              <TextBlock Grid.Row="2" Text="Estimated MPG" Style="{StaticResource FieldLabel}" />
+              <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding VehicleMpgText, UpdateSourceTrigger=PropertyChanged}" />
+              <TextBlock Grid.Row="3" Text="Operating cost ($/mi, excl. fuel)" Style="{StaticResource FieldLabel}" />
+              <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding VehicleOperatingCostText, UpdateSourceTrigger=PropertyChanged}"
+                       ToolTip="Maintenance, tires, insurance, depreciation or lease, per mile. Excludes fuel." />
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+              <Button Content="New vehicle" Command="{Binding NewVehicleCommand}" />
+              <Button Content="Save vehicle" Command="{Binding SaveVehicleCommand}" FontWeight="SemiBold" />
+              <Button Content="Archive / restore" Command="{Binding ToggleVehicleArchivedCommand}" />
+            </StackPanel>
+          </StackPanel>
+        </GroupBox>
+      </Grid>
+
+      <GroupBox Header="Appearance">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Text="Theme" Style="{StaticResource FieldLabel}" Width="120" />
+          <ComboBox ItemsSource="{Binding Themes}" SelectedItem="{Binding Appearance}" Width="200" AutomationProperties.Name="Theme">
+            <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource EnumLabel}}" /></DataTemplate></ComboBox.ItemTemplate>
+          </ComboBox>
+          <TextBlock Text="Changes apply immediately and are remembered for this Windows user." Style="{StaticResource Hint}" VerticalAlignment="Center" />
+        </StackPanel>
+      </GroupBox>
+
+      <GroupBox Header="Backup and restore">
+        <StackPanel>
+          <TextBlock Style="{StaticResource Hint}">
+            <Run Text="Database: " /><Run Text="{Binding DatabasePath, Mode=OneWay}" />
+          </TextBlock>
+          <TextBlock Style="{StaticResource Hint}">
+            <Run Text="Default backup folder: " /><Run Text="{Binding BackupDirectory, Mode=OneWay}" />
+          </TextBlock>
+          <Border Background="{DynamicResource NoticeBackgroundBrush}" BorderBrush="{DynamicResource NoticeBorderBrush}" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,4,0,6">
+            <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource NoticeTextBrush}"
+                       Text="Back up before uninstalling. Uninstalling the app deletes your saved estimates, teams, vehicles and settings. Click Back up now… first and keep the file on a network share, OneDrive or a USB drive, not in the app's own folder." />
+          </Border>
+          <StackPanel Orientation="Horizontal">
+            <Button Content="Back up now…" Command="{Binding BackupCommand}" />
+            <Button Content="Restore from backup…" Command="{Binding RestoreCommand}" />
+          </StackPanel>
+        </StackPanel>
+      </GroupBox>
+
+      <GroupBox Header="API keys">
+        <StackPanel>
+        <TextBlock Style="{StaticResource Hint}" TextWrapping="Wrap"
+                   Text="Back up keys saves both API keys to a password-protected file (.estimator-keys) so you can restore them on another PC. Database backups never include API keys." />
+        <StackPanel Orientation="Horizontal">
+          <Button Content="Back up keys…" Command="{Binding ExportKeysCommand}" />
+          <Button Content="Restore keys…" Command="{Binding ImportKeysCommand}" />
+        </StackPanel>
+        <TextBlock Text="{Binding KeyBackupMessage}" Style="{StaticResource Hint}" TextWrapping="Wrap" />
+        <Separator Margin="0,8" />
+        <TextBlock Text="Google lookups (optional)" FontWeight="SemiBold" FontSize="14" Margin="0,4,0,2" />
+          <StackPanel>
+            <TextBlock Style="{StaticResource Hint}" TextWrapping="Wrap"
+                       Text="With a Google Maps Platform API key, New estimate can look up addresses and driving miles and time. The key is encrypted for this Windows user on this PC and is not included in backups. Without a key, enter miles and drive time manually. Setup steps: docs/GOOGLE_SETUP.md." />
+            <Grid Margin="0,4,0,0">
+              <Grid.ColumnDefinitions><ColumnDefinition Width="260" /><ColumnDefinition Width="360" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+              <TextBlock Text="Google Maps Platform API key" Style="{StaticResource FieldLabel}" />
+              <PasswordBox x:Name="GoogleKeyBox" Grid.Column="1" AutomationProperties.Name="Google Maps Platform API key"
+                           ToolTip="Paste the key from Google Cloud Console. The saved key is never shown again." />
+              <TextBlock Grid.Column="2" Text="{Binding GoogleKeyStatus}" FontWeight="SemiBold" Style="{StaticResource FieldLabel}" Margin="8,0,0,0" />
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+              <Button Content="{Binding GoogleSaveButtonText}" Click="SaveGoogleKey_Click" FontWeight="SemiBold" />
+              <Button Content="Test key" Click="TestGoogleKey_Click" ToolTip="Runs one address search for Hattiesburg, MS with the typed key, or the saved key if the box is empty." />
+              <Button Content="Remove key" Click="RemoveGoogleKey_Click" />
+            </StackPanel>
+            <TextBlock Text="{Binding GoogleKeyMessage}" Style="{StaticResource Hint}" TextWrapping="Wrap" />
+          </StackPanel>
+          <Separator Margin="0,8" />
+        <TextBlock Text="Fuel prices (optional)" FontWeight="SemiBold" FontSize="14" Margin="0,4,0,2" />
+          <StackPanel>
+            <TextBlock Style="{StaticResource Hint}" TextWrapping="Wrap"
+                       Text="With an OilPriceAPI key, New estimate fetches the statewide average (AAA) for the state in the shop's starting address (Mississippi if none), for regular or diesel to match the vehicle, at most once per fuel type per day (after a failure, at most one retry per hour). The key is encrypted for this Windows user on this PC and is not included in backups. A price typed on the estimate always wins. Setup steps: docs/FUEL_PRICES.md." />
+            <Grid Margin="0,4,0,0">
+              <Grid.ColumnDefinitions><ColumnDefinition Width="260" /><ColumnDefinition Width="360" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+              <TextBlock Text="OilPriceAPI key" Style="{StaticResource FieldLabel}" />
+              <PasswordBox x:Name="FuelKeyBox" Grid.Column="1" AutomationProperties.Name="OilPriceAPI key"
+                           ToolTip="Paste the key from the OilPriceAPI dashboard. The saved key is never shown again." />
+              <TextBlock Grid.Column="2" Text="{Binding FuelKeyStatus}" FontWeight="SemiBold" Style="{StaticResource FieldLabel}" Margin="8,0,0,0" />
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+              <Button Content="{Binding FuelSaveButtonText}" Click="SaveFuelKey_Click" FontWeight="SemiBold" />
+              <Button Content="Test key" Click="TestFuelKey_Click" ToolTip="Fetches today's regular price for the shop's state with the typed key, or the saved key if the box is empty." />
+              <Button Content="Remove key" Click="RemoveFuelKey_Click" />
+            </StackPanel>
+            <TextBlock Text="{Binding FuelKeyMessage}" Style="{StaticResource Hint}" TextWrapping="Wrap" />
+          </StackPanel>
+        </StackPanel>
+      </GroupBox>
+    </StackPanel>
+  </ScrollViewer>
+  </Grid>
+</UserControl>
